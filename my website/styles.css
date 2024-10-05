@@ -1,0 +1,75 @@
+/* Default dark mode styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #e0e0e0;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1e1e1e;
+    color: #00e676;
+    padding: 1rem;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+section {
+    padding: 2rem 0;
+}
+
+h1, h2 {
+    color: #00e676;
+}
+
+a {
+    color: #00e676;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Light mode styles */
+body.light-mode {
+    color: #121212;
+    background-color: #ffffff;
+}
+
+body.light-mode header {
+    background-color: #f0f0f0;
+    color: #004d40;
+}
+
+body.light-mode .card {
+    background-color: #f9f9f9;
+}
+
+body.light-mode footer {
+    background-color: #f0f0f0;
+    color: #121212;
+}
+
+body.light-mode a {
+    color: #004d40;
+}
