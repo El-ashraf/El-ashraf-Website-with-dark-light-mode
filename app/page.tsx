@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { type FormEvent, useEffect, useState } from "react";
 
@@ -128,7 +128,7 @@ export default function Home() {
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
   }, []);
 
-  // reveal on scroll — triggers early (6% visible)
+  // reveal on scroll â€” triggers early (6% visible)
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-left, .reveal-right, .reveal-scale");
     const observer = new IntersectionObserver(
@@ -210,7 +210,7 @@ export default function Home() {
             <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </div>
           <div className="nav-actions">
-            <a className="nav-cta" href="#contact">Start a project ↗</a>
+            <a className="nav-cta" href="#contact">Start a project â†—</a>
             <button
               className="theme"
               type="button"
@@ -220,12 +220,17 @@ export default function Home() {
               <ThemeIcon dark={dark} />
             </button>
             <button
-              className="menu"
+              className={menuOpen ? "menu open" : "menu"}
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle navigation"
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
             >
-              {menuOpen ? "Close" : "Menu"}
+              <span className="hamburger">
+                <span />
+                <span />
+                <span />
+              </span>
             </button>
           </div>
         </nav>
@@ -239,7 +244,7 @@ export default function Home() {
           <em>Built to convert.</em>
         </h1>
         <p className="hero-intro">
-          I’m Ahmad Mohammad El-Ashraf, a frontend developer creating fast,
+          Iâ€™m Ahmad Mohammad El-Ashraf, a frontend developer creating fast,
           polished, and conversion-focused web experiences for startups, brands,
           and digital products.
         </p>
@@ -322,7 +327,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── RESULTS ── */}
+      {/* â”€â”€ RESULTS â”€â”€ */}
       <section className="stats-section">
         <div className="shell">
           <div className="stats-top reveal-left">
@@ -343,12 +348,12 @@ export default function Home() {
             <div className="value-card reveal-left">
               <span className="vc-num">01</span>
               <h3>Conversion-first UI</h3>
-              <p>Built around clarity, trust, and faster product understanding — helping users act with confidence.</p>
+              <p>Built around clarity, trust, and faster product understanding â€” helping users act with confidence.</p>
             </div>
             <div className="value-card reveal">
               <span className="vc-num">02</span>
               <h3>Responsive by default</h3>
-              <p>Designed for real-world browsing — pixel-perfect across desktop, tablet, and mobile without compromise.</p>
+              <p>Designed for real-world browsing â€” pixel-perfect across desktop, tablet, and mobile without compromise.</p>
             </div>
             <div className="value-card reveal-right">
               <span className="vc-num">03</span>
@@ -359,7 +364,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TECHNICAL PROFILE ── */}
+      {/* â”€â”€ TECHNICAL PROFILE â”€â”€ */}
       <section id="about" className="about">
         <div className="shell">
           <div className="about-header">
@@ -408,7 +413,7 @@ export default function Home() {
       <section id="contact" className="contact">
         <div className="shell">
           <div className="contact-grid">
-            {/* ── Left: info + channels ── */}
+            {/* â”€â”€ Left: info + channels â”€â”€ */}
             <div className="contact-info reveal-left">
               <p className="eyebrow">Have a project in mind?</p>
               <h2 className="contact-title">
@@ -453,11 +458,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── Right: form ── */}
+            {/* â”€â”€ Right: form â”€â”€ */}
             <form className="contact-form reveal-right" onSubmit={handleContactSubmit}>
               <label htmlFor="cf-name">
                 Your name
-                <input id="cf-name" name="name" autoComplete="name" placeholder="Ahmad…" required />
+                <input id="cf-name" name="name" autoComplete="name" placeholder="Ahmadâ€¦" required />
               </label>
               <label htmlFor="cf-email">
                 Email address
@@ -465,7 +470,7 @@ export default function Home() {
               </label>
               <label htmlFor="cf-message">
                 Message
-                <textarea id="cf-message" name="message" rows={6} placeholder="Tell me about your project, timeline, and budget…" required />
+                <textarea id="cf-message" name="message" rows={6} placeholder="Tell me about your project, timeline, and budgetâ€¦" required />
               </label>
               <div className="form-actions">
                 <button type="submit">Send message <Arrow /></button>
@@ -476,7 +481,7 @@ export default function Home() {
           </div>
 
           <div className="contact-bottom">
-            <p>© 2026 Ahmad Mohammad El-Ashraf. All rights reserved.</p>
+            <p>Â© 2026 Ahmad Mohammad El-Ashraf. All rights reserved.</p>
             <div className="contact-socials">
               <a href="mailto:ahmadtech20@gmail.com">Email</a>
               <a href="https://github.com/El-ashraf" target="_blank" rel="noreferrer">GitHub</a>
@@ -489,3 +494,4 @@ export default function Home() {
   </main>
   );
 }
+
