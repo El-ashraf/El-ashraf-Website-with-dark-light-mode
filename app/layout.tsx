@@ -1,5 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "Ahmad Mohammad El-Ashraf — Web Developer",
@@ -16,7 +22,6 @@ export const metadata: Metadata = {
     title: "Ahmad Mohammad El-Ashraf — Web Developer",
     description: "Building dynamic and responsive web applications.",
   },
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=5.0",
   robots: "index, follow",
 };
 
