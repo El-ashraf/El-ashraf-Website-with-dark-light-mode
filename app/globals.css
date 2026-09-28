@@ -269,71 +269,7 @@ h1 { position: relative; z-index: 1; font-size: clamp(48px, 6.5vw, 94px); letter
   .cap-tag { opacity: 1; transform: none; }
 }
 
-/* ==== NAV OVERRIDES: hamburger-left | logo-center | theme-right ==== */
-.nav { position: relative; justify-content: space-between; }
 
-/* Logo absolutely centered in the nav bar */
-.logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -.01em;
-  pointer-events: auto;
-  z-index: 1;
-}
-
-/* Hamburger always visible, sits far left */
-.menu {
-  display: flex !important;
-  width: 38px;
-  height: 38px;
-  padding: 0;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-/* nav-actions pushed to far right */
-.nav-actions { margin-left: auto; }
-
-/* Dropdown opens from the left (under hamburger) */
-.nav-links {
-  display: none;
-  position: absolute;
-  top: 68px;
-  left: 0;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 18px;
-  flex-direction: column;
-  gap: 16px;
-  min-width: 160px;
-  margin: 0;
-  z-index: 60;
-  border-radius: 14px;
-  box-shadow: 0 16px 40px var(--shadow);
-}
-.nav-links.open { display: flex; }
-.nav-links a {
-  color: var(--muted);
-  font: 500 10px var(--mono);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--text); }
-
-/* Mobile: hide logo-name, hide CTA, keep hamburger + theme */
-@media (max-width: 700px) {
-  .logo-name { display: none; }
-  .nav-cta { display: none; }
-}
-/* ==== END NAV OVERRIDES ==== */
 
 /* ==== CARD LINK OVERRIDES: full card clickable ==== */
 .project { position: relative; }
@@ -342,3 +278,33 @@ h1 { position: relative; z-index: 1; font-size: clamp(48px, 6.5vw, 94px); letter
 .arrow-icon { flex: 0 0 auto; border: 1px solid var(--line); border-radius: 50%; width: 42px; height: 42px; display: grid; place-items: center; position: relative; z-index: 2; pointer-events: none; transition: background .2s, border-color .2s; }
 .project:hover .arrow-icon { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 /* ==== END CARD LINK OVERRIDES ==== */
+
+/* ==== NAV OVERRIDES ==== */
+.nav { position: relative; }
+
+/* ---- DESKTOP (>700px): original layout ---- */
+/* Logo on left - reset any absolute positioning */
+.logo { position: static; transform: none; display: flex; align-items: center; gap: 10px; }
+
+/* Nav links centered inline */
+.nav-links { display: flex; position: static; background: none; border: none; padding: 0; flex-direction: row; gap: 28px; min-width: 0; margin-left: auto; margin-right: auto; box-shadow: none; border-radius: 0; z-index: auto; }
+.nav-links a { font: 500 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--text); }
+
+/* Hamburger hidden on desktop */
+.menu { display: none !important; }
+
+/* CTA + theme on right */
+.nav-actions { margin-left: 0; display: flex; gap: 10px; align-items: center; }
+
+/* ---- MOBILE (<=700px): hamburger-left | logo-center | theme-right ---- */
+@media (max-width: 700px) {
+  .logo { position: absolute; left: 50%; transform: translateX(-50%); }
+  .logo-name { display: none; }
+  .menu { display: flex !important; width: 38px; height: 38px; padding: 0; justify-content: center; align-items: center; flex-shrink: 0; }
+  .nav-links { display: none; position: absolute; top: 68px; left: 0; background: var(--surface); border: 1px solid var(--line); padding: 18px; flex-direction: column; gap: 16px; min-width: 160px; margin: 0; z-index: 60; border-radius: 14px; box-shadow: 0 16px 40px var(--shadow); }
+  .nav-links.open { display: flex; }
+  .nav-cta { display: none; }
+  .nav-actions { margin-left: auto; }
+}
+/* ==== END NAV OVERRIDES ==== */
