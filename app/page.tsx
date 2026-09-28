@@ -77,39 +77,14 @@ function ThemeIcon({ dark }: { dark: boolean }) {
 
 function ProjectPreview({ variant, name }: { variant: string; name: string }) {
   return (
-    <div className={`project-preview preview-${variant}`} aria-hidden="true">
-      <div className="preview-bar">
-        <i />
-        <i />
-        <i />
-        <span>{name.toLowerCase().replaceAll(" ", "")}.app</span>
-      </div>
-      <div className="preview-body">
-        <div className="preview-sidebar">
-              <b className="preview-sidebar-item" />
-              <b className="preview-sidebar-item" />
-              <b className="preview-sidebar-item" />
-              <b className="preview-sidebar-item" />
-        </div>
-        <div className="preview-main">
-          <div className="preview-heading">
-            <span />
-            <span />
-          </div>
-          <div className="preview-grid">
-            <i />
-            <i />
-            <i />
-          </div>
-          <div className="preview-chart">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
-      </div>
+    <div className="project-preview" aria-label={`${name} website screenshot`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/preview-${variant}.png`}
+        alt={`${name} website preview`}
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   );
 }
@@ -210,7 +185,7 @@ export default function Home() {
             <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </div>
           <div className="nav-actions">
-            <a className="nav-cta" href="#contact">Start a project â†—</a>
+            <a className="nav-cta" href="#contact">Start a project {"\u2197"}</a>
             <button
               className="theme"
               type="button"
