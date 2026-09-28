@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { type FormEvent, useEffect, useState } from "react";
 
@@ -175,6 +175,19 @@ export default function Home() {
       <a href="#top" className="skip-to-content">Skip to main content</a>
       <header className="nav-header">
         <nav className="nav shell">
+          <button
+            className={menuOpen ? "menu open" : "menu"}
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={menuOpen}
+          >
+            <span className="hamburger">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
           <a className="logo" href="#top" aria-label="Ahmad El-Ashraf home">
             <span className="logo-box">AE</span>
             <span className="logo-name">Ahmad El-Ashraf</span>
@@ -193,19 +206,6 @@ export default function Home() {
               aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
             >
               <ThemeIcon dark={dark} />
-            </button>
-            <button
-              className={menuOpen ? "menu open" : "menu"}
-              type="button"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-            >
-              <span className="hamburger">
-                <span />
-                <span />
-                <span />
-              </span>
             </button>
           </div>
         </nav>
@@ -273,6 +273,13 @@ export default function Home() {
           <div className="project-list">
             {projects.map((project) => (
               <article className="project reveal" key={project.name}>
+                <a
+                  className="project-card-link"
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${project.name}`}
+                />
                 <ProjectPreview variant={project.preview} name={project.name} />
                 <div className="project-info">
                   <div>
@@ -287,14 +294,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <a
-                    href={project.href}
-                    aria-label={`View ${project.name}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Arrow />
-                  </a>
+                  <span className="arrow-icon" aria-hidden="true"><Arrow /></span>
                 </div>
               </article>
             ))}
